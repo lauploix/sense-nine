@@ -7,6 +7,7 @@ dependencies {
     implementation(project(":com.mechanitis.demo.sense.service"))
 
     implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+    implementation("com.google.guava:guava:21.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.14.0")
     testImplementation("org.hamcrest:hamcrest:2.2")
