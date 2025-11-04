@@ -1,6 +1,4 @@
 name: Build
-env:
-  DEVELOCITY_ACCESS_KEY: ge.gradle.org=${{ secrets.DEVELOCITY_ACCESS_KEY }}
 on:
   push:
 jobs:
@@ -16,5 +14,7 @@ jobs:
           java-version: 17
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
+        with:
+          develocity-access-key: ge.gradle.org=${{ secrets.DEVELOCITY_ACCESS_KEY }}
       - name: Build with Gradle
         run: ./gradlew build -Dscan.tag.CI
