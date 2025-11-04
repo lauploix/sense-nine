@@ -4,6 +4,14 @@ dependencyResolutionManagement {
     }
 }
 
+plugins {
+    id("com.gradle.develocity") version("4.2.2")
+}
+
+develocity {
+    server = "https://ge.gradle.org"
+}
+
 rootProject.name = "sense-nine"
 
 include("com.mechanitis.demo.sense.flow",
