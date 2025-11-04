@@ -1,6 +1,6 @@
 name: Build
 env:
-  DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
+  DEVELOCITY_ACCESS_KEY: ge.gradle.org=${{ secrets.DEVELOCITY_ACCESS_KEY }}
 on:
   push:
 jobs:
