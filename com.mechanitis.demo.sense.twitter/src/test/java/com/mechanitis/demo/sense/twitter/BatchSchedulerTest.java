@@ -4,6 +4,7 @@ import org.junit.jupiter.api.RepeatedTest;
 
 import java.time.LocalTime;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BatchSchedulerTest {
@@ -20,5 +21,10 @@ public class BatchSchedulerTest {
         assertTrue(milliOfSecond < 900,
                    "Flaky failure! Job tried to run in the 'danger zone' at "
                            + milliOfSecond + "ms.");
+    }
+
+    @RepeatedTest(value = 20)
+    void testLogging() {
+        assertEquals("Hello, World! ", BatchScheduler.hello());
     }
 }
