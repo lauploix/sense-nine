@@ -3,3 +3,7 @@ out
 com.mechanitis.demo.sense.twitter/tweetdata60-mins.txt
 classes
 build
+.idea/copilot*
+.idea/workspace.xml
+.idea/modules
+.idea/modules.xml
