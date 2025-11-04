@@ -1,6 +1,6 @@
 name: Build
 env:
-  SENSE_NINE_API_KEY: true
+  SENSE_NINE_API_KEY: prod_key
 on:
   push:
 jobs:
