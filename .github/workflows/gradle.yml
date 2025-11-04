@@ -1,0 +1,22 @@
+name: Build
+env:
+  SENSE_NINE_API_KEY: true
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          develocity-access-key: ge.gradle.org=${{ secrets.DEVELOCITY_ACCESS_KEY }}
+      - name: Build with Gradle
+        run: ./gradlew build -Dscan.tag.CI
