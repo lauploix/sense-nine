@@ -25,3 +25,4 @@ To demo the client you can run UserTestData and MoodTestData to create two stub 
 
 **qcon-london** the completed application as demoed at QCon London in March 2017.  This version of the presentation focused on migrating an application to use the Reactive Streams API from a custom messaging solution.  This worked with a much earlier version of Java 9 and may no longer compile.
 
+ 
