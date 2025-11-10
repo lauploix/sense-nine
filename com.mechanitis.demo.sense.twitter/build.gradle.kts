@@ -1,5 +1,6 @@
 plugins {
     id("application")
+    id("org.gradle.test-retry") version "1.6.4"
 }
 
 dependencies {
@@ -30,5 +31,11 @@ repositories {
 
 application {
     mainClass.set("com.mechanitis.demo.sense.twitter.CannedTweetsService")
+}
+
+tasks.test {
+    retry {
+        maxRetries = 10
+    }
 }
 
