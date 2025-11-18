@@ -4,6 +4,15 @@ dependencyResolutionManagement {
     }
 }
 
+plugins {
+    id("com.gradle.develocity") version("4.2.2")
+    id("com.gradle.common-custom-user-data-gradle-plugin") version "2.4.0"
+}
+
+develocity {
+    server = "https://ge.gradle.org"
+}
+
 rootProject.name = "sense-nine"
 
 include("com.mechanitis.demo.sense.flow",
