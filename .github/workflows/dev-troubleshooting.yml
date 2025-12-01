@@ -23,6 +23,9 @@ jobs:
         with:
           ref: ${{ matrix.branch }}
 
+      - name: Attach local branch name
+        run: git checkout -B ${{ matrix.branch }}
+
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
