@@ -1,0 +1,38 @@
+name: Demo - Troubleshoot with AI
+on:
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  build-all-branches:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        branch:
+          - 'main'
+          - '1-local-OK-ci-NOK'
+          - '2-local-NOK-ci-OK'
+          - '3-test-failures-flaky-vs-non-flaky'
+          - '4-test-failures-infra-vs-non-infra'
+          - '5-dependency-conflict'
+
+    name: Build branch ${{ matrix.branch }}
+    steps:
+      - name: Checkout specific branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          develocity-access-key: ge.gradle.org=${{ secrets.DEVELOCITY_ACCESS_KEY }}
+
+      - name: Build with Gradle
+        run: ./gradlew build
