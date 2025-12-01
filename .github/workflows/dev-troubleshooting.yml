@@ -23,9 +23,6 @@ jobs:
         with:
           ref: ${{ matrix.branch }}
 
-      - name: Attach local branch name
-        run: git checkout -B ${{ matrix.branch }}
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -38,4 +35,6 @@ jobs:
           develocity-access-key: ge.gradle.org=${{ secrets.DEVELOCITY_ACCESS_KEY }}
 
       - name: Build with Gradle
+        env:
+          GITHUB_REF_NAME: ${{ matrix.branch }} # For CCUD to pick up the branch properly
         run: ./gradlew build
