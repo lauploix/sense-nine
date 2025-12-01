@@ -23,6 +23,9 @@ jobs:
         with:
           ref: ${{ matrix.branch }}
 
+      - name: Restore Branch Name
+        run: git checkout -B ${{ matrix.branch }}
+
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -37,4 +40,4 @@ jobs:
       - name: Build with Gradle
         env:
           GITHUB_REF_NAME: ${{ matrix.branch }} # For CCUD to pick up the branch properly
-        run: ./gradlew build
+        run: ./gradlew build --no-daemon
